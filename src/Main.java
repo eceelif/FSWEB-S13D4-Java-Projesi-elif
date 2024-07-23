@@ -1,46 +1,59 @@
-import com.project.superhuman.Human;
-import com.students.*;
+import com.elifStudents.*;
 
 public class Main {
     public static void main(String[] args) {
+        // Öğrenci ve notlarını oluştur
+        Student student1 = new Student("Ali Veli", "123", new Score(85));
+        Student student2 = new Student("Ayşe Yılmaz", "456", new Score(90));
+        Student student3 = new Student("Fatma Kaya", "789", new Score(75));
+        Student student4 = new Student("Ahmet Yenice", "864", new Score(45));
+        Student student5 = new Student("Elif Yurt", "567", new Score(95));
+        Student student6 = new Student("Burak Çelik", "890", new Score(88));
 
-      /*  Human insanEgo = new Human();
-        Human insanGokalp = new Human(2);
-        Human humanElif  = new Human(3);
+        // Departman oluştur ve öğrencileri ekle
+        Department department1 = new Department("Computer Science");
+        department1.addStudent(student1);
+        department1.addStudent(student2);
+        department1.addStudent(student3);
 
+        Department department2 = new Department("Mathematics");
+        department2.addStudent(student4);
 
-        System.out.println(insanEgo.getCityInfo());
+        Department departmentArt1 = new Department("Painting");
+        departmentArt1.addStudent(student5);
 
-        insanGokalp.getCityValue();
-        System.out.println(insanGokalp.getCityInfo());
-        insanGokalp.run(10);
-        insanGokalp.run(100);
+        Department departmentArt2 = new Department("Sculpture");
+        departmentArt2.addStudent(student6);
 
+        // Fakülteler oluştur ve departmanları ekle
+        Faculty faculty = new Faculty("Engineering");
+        faculty.addDepartment(department1);
+        faculty.addDepartment(department2);
 
-        System.out.println("Bu insan bu kadar koştu : "+ insanGokalp.runnerMeterValue());
-*/
-        //read from config
-        Human.defaultTitle = "Yetişkin";
+        Faculty facultyArt = new Faculty("Art");
+        facultyArt.addDepartment(departmentArt1);
+        facultyArt.addDepartment(departmentArt2);
 
-        Egemen egemenInsanIki = new Egemen();
-        System.out.println("Egemenin sırrını söyle pls : " +egemenInsanIki.Unvan);
-        System.out.println("İşte Egemenin sırrı: " + egemenInsanIki.getEgemenSecret());
+        // Okul oluştur ve fakülteleri ekle
+        School school = new School("My University");
+        school.addFaculty(faculty);
+        school.addFaculty(facultyArt);
 
-        Gokalp gokalpInsanIkı = new Gokalp();
-        System.out.println("Egemenin sırrına inanma");
-        System.out.println("İşte Egemenin gerçek sırrı : " + gokalpInsanIkı.GetgokalpSecret());
+        // Bütçe oluştur
+        Budget budget = new Budget(10000, 1000);
 
-        Elif elifInsanIki = new Elif();
-        System.out.println("Gokalp in sırrını söyleme");
-        System.out.println("Gokalp in sırrını söyleme : " + elifInsanIki.getElifDeneme() );
+        // ScholarshipManager oluştur ve bursları kontrol et
+        ScholarshipManager scholarshipManager = new ScholarshipManager(budget);
+        scholarshipManager.checkAndAwardScholarships(school);
 
+        // Fakülte ve departmanları göster
+        for (Faculty facultyItem : school.getFaculties()) {
+            facultyItem.displayFaculty();
+            facultyItem.displayDepartmentNames();
+        }
 
-        Enes enesInsan = new Enes();
-        System.out.println("Enes'in hobisi: " + enesInsan.getEnesHobie());
-
-        Student tunc = new Student(44);
-        int kanyaYas = tunc.Kanka.yas;
-
-
+        // Başarılı öğrencileri göster
+        SuccessfulStudents successfulStudents = scholarshipManager.getSuccessfulStudents();
+        successfulStudents.displaySuccessfulStudents();
     }
 }
