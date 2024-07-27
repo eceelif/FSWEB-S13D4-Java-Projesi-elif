@@ -1,5 +1,8 @@
 import com.elifStudents.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         // Öğrenci ve notlarını oluştur
@@ -9,6 +12,15 @@ public class Main {
         Student student4 = new Student("Ahmet Yenice", "864", new Score(45));
         Student student5 = new Student("Elif Yurt", "567", new Score(95));
         Student student6 = new Student("Burak Çelik", "890", new Score(88));
+
+        // Tüm öğrencileri listeye ekle
+        List<Student> allStudents = new ArrayList<>();
+        allStudents.add(student1);
+        allStudents.add(student2);
+        allStudents.add(student3);
+        allStudents.add(student4);
+        allStudents.add(student5);
+        allStudents.add(student6);
 
         // Departman oluştur ve öğrencileri ekle
         Department department1 = new Department("Computer Science");
@@ -40,7 +52,7 @@ public class Main {
         school.addFaculty(facultyArt);
 
         // Bütçe oluştur
-        Budget budget = new Budget(10000, 1000);
+        Budget budget = new Budget(1000000); // 1.000.000 TL
 
         // ScholarshipManager oluştur ve bursları kontrol et
         ScholarshipManager scholarshipManager = new ScholarshipManager(budget);
@@ -53,7 +65,6 @@ public class Main {
         }
 
         // Başarılı öğrencileri göster
-        SuccessfulStudents successfulStudents = scholarshipManager.getSuccessfulStudents();
-        successfulStudents.displaySuccessfulStudents();
+        Student.listSuccessfulStudents(allStudents, 80);
     }
 }

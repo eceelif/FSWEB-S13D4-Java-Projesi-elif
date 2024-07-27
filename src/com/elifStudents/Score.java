@@ -1,7 +1,7 @@
 package com.elifStudents;
 
-public record Score(double value) {
-
+public class Score {
+  public double value;
     public Score(double value) {
         this.value = value;
     }

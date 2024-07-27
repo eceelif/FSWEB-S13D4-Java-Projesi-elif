@@ -1,6 +1,5 @@
 package com.elifStudents;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,21 +19,15 @@ public class Faculty {
     public List<Department> getDepartments() {
         return departments;
     }
-    public void displayDepartmentNames() {
-                System.out.println("Departments in Faculty elif: " + name);
-                for (Department department : departments) {
-                    System.out.println("Department elif: " + department);
-                }
-            }
+
     public void displayFaculty() {
-        System.out.println("Faculty name: " + name);
+        System.out.println("Faculty: " + name);
+    }
+
+    public void displayDepartmentNames() {
+        System.out.println("Departments in Faculty: " + name);
         for (Department department : departments) {
-            System.out.println("Department: " + department);
-            for (Student student : department.getStudents()) {
-                System.out.println("Studet: " + student.getName() + " student number: " + student.getStudentNumber() + student.getScore().getValue());
-            }
+            System.out.println("Department: " + department.getName());
         }
     }
-        }
-
-
+}

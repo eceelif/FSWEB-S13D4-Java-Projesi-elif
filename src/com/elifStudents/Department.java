@@ -19,7 +19,15 @@ public class Department {
     public List<Student> getStudents() {
         return students;
     }
-    public String toString() {
+
+    public String getName() {
         return name;
+    }
+
+    public void displayDetails() {
+        System.out.println("Department: " + name);
+        for (Student student : students) {
+            student.displayDetails();
+        }
     }
 }

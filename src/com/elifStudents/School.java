@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class School {
-    private final List<Faculty> faculties;
+    private String name;
+    private List<Faculty> faculties;
 
     public School(String name) {
+        this.name = name;
         this.faculties = new ArrayList<>();
     }
 
@@ -16,5 +18,12 @@ public class School {
 
     public List<Faculty> getFaculties() {
         return faculties;
+    }
+
+    public void displayFaculties() {
+        System.out.println("Faculties in School: " + name);
+        for (Faculty faculty : faculties) {
+            faculty.displayFaculty();
+        }
     }
 }
