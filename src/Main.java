@@ -1,4 +1,6 @@
 import com.elifStudents.*;
+import models.Course;
+import models.Teacher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,12 +49,30 @@ public class Main {
         facultyArt.addDepartment(departmentArt2);
 
         // Okul oluştur ve fakülteleri ekle
-        School school = new School("My University");
+        School school = new School("My University", 1000000);
         school.addFaculty(faculty);
         school.addFaculty(facultyArt);
 
+        // Öğretmenleri oluştur
+        Teacher teacher1 = new Teacher("Dr. John Doe", "Algorithms", 3, "Room 101");
+        Teacher teacher2 = new Teacher("Prof. Jane Smith", "Linear Algebra", 4, "Room 202");
+        Teacher teacher3 = new Teacher("Mr. Alan Brown", "Painting Techniques", 2, "Art Room 1");
+
+        // Dersleri oluştur
+        Course course1 = new Course("Algorithms", 4);
+        Course course2 = new Course("Linear Algebra", 3);
+        Course course3 = new Course("Painting Techniques", 2);
+
+        // Öğretmen ve ders bilgilerini göster
+        System.out.println("teacher 1" + teacher1);
+        System.out.println(teacher2);
+        System.out.println(teacher3);
+        System.out.println(course1);
+        System.out.println(course2);
+        System.out.println(course3);
+
         // Bütçe oluştur
-        Budget budget = new Budget(1000000); // 1.000.000 TL
+        Budget budget = new Budget(1000000);
 
         // ScholarshipManager oluştur ve bursları kontrol et
         ScholarshipManager scholarshipManager = new ScholarshipManager(budget);

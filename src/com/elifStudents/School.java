@@ -7,7 +7,7 @@ public class School {
     private String name;
     private List<Faculty> faculties;
 
-    public School(String name) {
+    public School(String name, int i) {
         this.name = name;
         this.faculties = new ArrayList<>();
     }
